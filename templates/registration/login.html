@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Вход{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css"/>
+{% endblock %}
+
+{% block main %}
+	<div class="login_page">
+		<div class="login_head_wrap clearfix">
+			<div class="login_head_submit_wrap">
+				<a class="login_head_submit_btn" type="submit">
+				Next
+				<i class="icon icon-next-submit"></i>
+				</a>
+			</div>
+		</div>
+		<div class="login_form_wrap">
+
+			<form class="form-signin" method="post">
+				{% csrf_token %}
+
+				<h3 class="login_form_head">Sign in</h2>
+				<p class="login_form_lead"> 
+				Please enter your nickname and enter your password.
+				<br>
+				<br>
+				Note that you need an existing account to log in to DarkMe Web. To sign up for DarkMe, use one of our mobile apps (It is currently unavailable).
+				</p>
+				<br>
+
+				{% if form.errors %}
+					<div class="span3 alert alert-danger">
+						<h4>Ошибка!</h4>
+						Пожалуйста, введите корректные данные. Поля
+				чувствительны к регистру.
+					</div>
+				{% endif %}
+
+				<label for="username" class="sr-only">Имя пользователя</label>
+				<input type="text" id="username" class="form-control"
+					   name="username" placeholder="Username"
+					   value="{{ form.username.value|default_if_none:"" }}"
+					   required autofocus>
+
+				<label for="password" class="sr-only">Пароль</label>
+				<input type="password" id="password" class="form-control"
+					   name="password" placeholder="Password" required>
+
+				<br>
+
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					Войти
+				</button>
+
+			</form>
+
+		</div> <!-- /container -->
+	</div>
+	<div class="login_footer_wrap">
+		<p>Welcome to the official DarkMe web-client.</p>
+	</div>
+{% endblock %}

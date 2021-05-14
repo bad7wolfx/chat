@@ -1,0 +1,23 @@
+{% if user.is_authenticated %}
+	<div my-head>
+		<div class="dm_page_head dm_head_wrap noselect clearfix">
+			<div class="dm_head_split">
+				<div class="dm_head_logo_wrap">
+					<div class="dm_head_logo_dropdown dropdown">
+						<a class="dm_head_btn dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+							<div class="icon-hamburger-wrap">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</div>
+							DarkMe
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% else %}
+	<div class="login_head_bg"></div>
+{% endif %}
